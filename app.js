@@ -6,9 +6,9 @@ const logger = require('morgan');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-const post = require('./routes/post');
+const index  = require('./routes/index');
+const post   = require('./routes/post');
+const reviews = require('./routes/reviews');
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/post', post)
-app.use('/users', users);
+app.use('/post/:id/reviews', reviews);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
